@@ -1,0 +1,22 @@
+
+services:
+  dbtest:
+    image: postgres
+    container_name: dbtest
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DB}
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+    networks:
+      - ft_transendance
+
+volumes:
+  data:
+
+networks:
+  ft_transendance:
+    driver: bridge
