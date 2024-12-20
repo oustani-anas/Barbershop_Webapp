@@ -1,22 +1,30 @@
+version: '3.8'
 
 services:
+  
+  nest-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nest-app
+    ports:
+      - "9000:9000"
+    depends_on:
+      - dbtest
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+  
   dbtest:
     image: postgres
-    container_name: dbtest
+    container_name: ${DB_HOST}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data  # Correct volume reference
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_DB}
     ports:
-      - 5432:5432
-    volumes:
-      - data:/var/lib/postgresql/data
-    networks:
-      - ft_transendance
+      - "5432:5432"
 
 volumes:
-  data:
-
-networks:
-  ft_transendance:
-    driver: bridge
+  postgres-data:  # Named volume definition
