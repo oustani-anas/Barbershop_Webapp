@@ -2,15 +2,16 @@ FROM node:20.18.1
 
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/package.json
-COPY package-lock.json /usr/src/app/package-lock.json
+COPY package.json package-lock.json ./
 
 RUN npm install
 
-COPY . /usr/src/app
+COPY . .
 
 RUN npx prisma generate
 
+RUN npm run migrate
+
 RUN npm run build
 
-CMD ["npm", "start", "start:prod"]
+CMD ["npm", "run", "start:prod"]
