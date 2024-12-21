@@ -53,7 +53,8 @@ const AppointmentSlots = () => {
   const fetchAvailableSlots = useCallback(async (date) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:9000/api/slots?date=${date.toISOString()}`);
+      // const response = await fetch(`http://localhost:9000/api/slots?date=${date.toISOString()}`);
+      const response = await fetch(`https://barbershop-webapp.onrender.com/api/slots?date=${date.toISOString()}`);
       const data = await response.json();
       
       // Filter out booked slots
@@ -74,7 +75,7 @@ const AppointmentSlots = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:9000/api/appointments', {
+      const response = await fetch('https://barbershop-webapp.onrender.com/api/appointments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
