@@ -10,4 +10,4 @@ This is a simple barbershop booking system created as part of a technical test f
 ## Live Website
 You can view the live demo here: [Barbershop Booking System](https://barbershoppp.vercel.app)
 
-## Project Structure
+
