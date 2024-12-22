@@ -10,4 +10,21 @@ This is a simple barbershop booking system created as part of a technical test f
 ## Live Website
 You can view the live demo here: [Barbershop Booking System](https://barbershoppp.vercel.app)
 
+Tools and Technologies Used
+Frontend:
+
+React.js
+Vercel (for deployment)
+Assistance from Claude, an AI tool, for frontend implementation.
+Backend:
+
+NestJS
+PostgreSQL
+Docker
+Render (for deployment)
+Other:
+
+GitHub for version control
+Prisma ORM for database management
+
 
